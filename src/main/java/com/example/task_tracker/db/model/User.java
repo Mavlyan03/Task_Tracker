@@ -1,6 +1,7 @@
 package com.example.task_tracker.db.model;
 
 
+import com.example.task_tracker.db.model.enums.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,8 @@ public class User {
     private String email;
     private String image;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToMany(cascade = {
             REFRESH,
