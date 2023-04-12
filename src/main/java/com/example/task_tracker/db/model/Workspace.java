@@ -18,7 +18,6 @@ public class Workspace {
     @SequenceGenerator(name = "workspace_seq", sequenceName = "workspace_seq", allocationSize = 10)
     @GeneratedValue(generator = "workspace_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
-
     private String name;
     private Boolean isFavorite;
 
