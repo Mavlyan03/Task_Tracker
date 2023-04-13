@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static javax.persistence.CascadeType.*;
 
 @Entity
@@ -27,4 +29,19 @@ public class Workspace {
             MERGE,
             PERSIST})
     private User lead;
+
+    @ManyToMany(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private List<User> members;
+
+    @OneToMany(cascade = ALL, mappedBy = "workspace")
+    private List<Board> boards;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Favorite favorite;
 }

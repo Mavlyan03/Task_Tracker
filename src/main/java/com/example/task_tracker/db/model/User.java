@@ -34,4 +34,14 @@ public class User {
             DETACH,
             MERGE}, mappedBy = "lead")
     private List<Workspace> workspaces;
+
+    @OneToMany(cascade = ALL, mappedBy = "statusChangedUser")
+    private List<Favorite> favorites;
+
+    @OneToMany(cascade = ALL, mappedBy = "user")
+    private List<Comment> comments;
+
+    @OneToMany(cascade = ALL, mappedBy = "creator")
+    private List<Card> cards;
+
 }

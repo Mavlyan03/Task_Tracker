@@ -9,6 +9,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
 @Table(name = "notifications")
 @NoArgsConstructor
@@ -24,6 +26,9 @@ public class Notification {
     @Enumerated(EnumType.STRING)
     private NotificationType notificationType;
 
-    @OneToOne
+    @ManyToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
     private User user;
 }

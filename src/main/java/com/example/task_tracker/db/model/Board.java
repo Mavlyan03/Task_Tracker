@@ -6,6 +6,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.util.List;
+
+import static javax.persistence.CascadeType.*;
+
 @Entity
 @Table(name = "boards")
 @NoArgsConstructor
@@ -19,6 +23,19 @@ public class Board {
 
     private String title;
     private String image;
-    private String color;
+    private String background;
     private Boolean isFavorite;
+
+    @ManyToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Workspace workspace;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Favorite favorite;
+
 }

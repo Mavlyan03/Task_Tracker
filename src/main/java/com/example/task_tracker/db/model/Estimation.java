@@ -24,8 +24,10 @@ public class Estimation {
     @Enumerated(EnumType.STRING)
     private ReminderType reminderType;
     private LocalDateTime notificationTime;
+
     @OneToOne
     private User user;
+
     @OneToOne
     private Card card;
 }

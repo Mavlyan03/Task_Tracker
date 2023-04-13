@@ -21,6 +21,7 @@ public class Comment {
     private String comment;
     private String createdAt;
     private Boolean isMyComment;
+
     @ManyToOne(cascade = {
             DETACH,
             REFRESH,
