@@ -16,4 +16,9 @@ public class Board {
     @SequenceGenerator(name = "board_seq", sequenceName = "board_seq", allocationSize = 10)
     @GeneratedValue(generator = "board_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    private String title;
+    private String image;
+    private String color;
+    private Boolean isFavorite;
 }

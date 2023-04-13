@@ -16,4 +16,6 @@ public class Label {
     @SequenceGenerator(name = "label_seq", sequenceName = "label_seq", allocationSize = 10)
     @GeneratedValue(generator = "label_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String description;
+    private String color;
 }
