@@ -44,4 +44,10 @@ public class User {
     @OneToMany(cascade = ALL, mappedBy = "creator")
     private List<Card> cards;
 
+    @OneToMany(cascade = ALL, mappedBy = "archivedUser")
+    private List<Basket> baskets;
+
+    @OneToMany(cascade = ALL, mappedBy = "creator")
+    private List<Column> columns;
+
 }
