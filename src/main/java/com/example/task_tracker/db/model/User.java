@@ -50,4 +50,7 @@ public class User {
     @OneToMany(cascade = ALL, mappedBy = "creator")
     private List<Column> columns;
 
+    @OneToMany(cascade = ALL, mappedBy = "user")
+    private List<UserWorkspace> userWorkspaces;
+
 }

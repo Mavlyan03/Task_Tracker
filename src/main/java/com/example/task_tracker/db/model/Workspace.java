@@ -44,4 +44,7 @@ public class Workspace {
             REFRESH,
             MERGE})
     private Favorite favorite;
+
+    @OneToMany(cascade = ALL, mappedBy = "workspace")
+    private List<UserWorkspace> userWorkspaces;
 }
