@@ -30,12 +30,6 @@ public class Workspace {
             PERSIST})
     private User lead;
 
-    @ManyToMany(cascade = {
-            DETACH,
-            REFRESH,
-            MERGE})
-    private List<User> members;
-
     @OneToMany(cascade = ALL, mappedBy = "workspace")
     private List<Board> boards;
 

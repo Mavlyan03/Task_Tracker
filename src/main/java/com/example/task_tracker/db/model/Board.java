@@ -38,4 +38,10 @@ public class Board {
             MERGE})
     private Favorite favorite;
 
+    @ManyToMany(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private List<User> members;
+
 }
