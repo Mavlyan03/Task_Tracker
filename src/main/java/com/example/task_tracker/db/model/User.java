@@ -52,5 +52,4 @@ public class User {
 
     @OneToMany(cascade = ALL, mappedBy = "user")
     private List<UserWorkspace> userWorkspaces;
-
 }
