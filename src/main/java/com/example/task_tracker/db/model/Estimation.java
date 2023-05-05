@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
 @Table(name = "estimations")
 @NoArgsConstructor
@@ -19,15 +21,23 @@ public class Estimation {
     @SequenceGenerator(name = "estimation_seq", sequenceName = "estimation_seq", allocationSize = 10)
     @GeneratedValue(generator = "estimation_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
-    private LocalDate startedDate;
+    private LocalDate startDate;
     private LocalDate dueDate;
+    private LocalDateTime startTime;
+    private LocalDateTime dueTime;
     @Enumerated(EnumType.STRING)
     private ReminderType reminderType;
     private LocalDateTime notificationTime;
 
-    @OneToOne
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
     private User user;
 
-    @OneToOne
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
     private Card card;
 }
