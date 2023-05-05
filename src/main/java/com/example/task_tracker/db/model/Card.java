@@ -20,9 +20,17 @@ public class Card {
     @SequenceGenerator(name = "card_seq", sequenceName = "card_seq", allocationSize = 10)
     @GeneratedValue(generator = "card_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    private String title;
     private String description;
     private Boolean isArchived = false;
     private LocalDateTime createdAt;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private User movedUser;
 
     @ManyToOne(cascade = {
             DETACH,
@@ -44,5 +52,14 @@ public class Card {
 
     @OneToMany(cascade = {ALL}, mappedBy = "card")
     private List<Checklist> checklists;
+
+    @ManyToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Column column;
+
+    @OneToOne(cascade = {ALL}, mappedBy = "card")
+    private Basket basket;
 
 }
