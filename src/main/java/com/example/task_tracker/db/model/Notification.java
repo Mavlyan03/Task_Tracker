@@ -21,14 +21,42 @@ public class Notification {
     @SequenceGenerator(name = "notification_seq", sequenceName = "notification_seq", allocationSize = 10)
     @GeneratedValue(generator = "notification_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String text;
+    private String message;
     private LocalDateTime createdAt;
+    private Boolean isRead;
     @Enumerated(EnumType.STRING)
     private NotificationType notificationType;
+
+    @OneToOne
+    private User fromUser;
 
     @ManyToOne(cascade = {
             DETACH,
             REFRESH,
             MERGE})
     private User user;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Card card;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Column column;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Estimation estimation;
+
+    @OneToOne(cascade = {
+            DETACH,
+            REFRESH,
+            MERGE})
+    private Board board;
 }

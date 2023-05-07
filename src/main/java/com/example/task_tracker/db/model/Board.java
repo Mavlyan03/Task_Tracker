@@ -22,7 +22,6 @@ public class Board {
     private Long id;
 
     private String title;
-    private String image;
     private String background;
     private Boolean isFavorite;
 
@@ -35,7 +34,7 @@ public class Board {
     @OneToOne(cascade = {
             DETACH,
             REFRESH,
-            MERGE})
+            MERGE}, mappedBy = "board")
     private Favorite favorite;
 
     @ManyToMany(cascade = {

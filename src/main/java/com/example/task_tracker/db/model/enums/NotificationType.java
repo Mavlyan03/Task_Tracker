@@ -4,5 +4,4 @@ public enum NotificationType {
     REMINDER,
     CHANGE_STATUS,
     ASSIGN;
-
 }

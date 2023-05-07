@@ -21,7 +21,7 @@ public class Workspace {
     @GeneratedValue(generator = "workspace_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    private Boolean isFavorite;
+    private Boolean isFavorite = false;
 
     @ManyToOne(cascade = {
             REFRESH,
@@ -36,7 +36,7 @@ public class Workspace {
     @OneToOne(cascade = {
             DETACH,
             REFRESH,
-            MERGE})
+            MERGE}, mappedBy = "workspace")
     private Favorite favorite;
 
     @OneToMany(cascade = ALL, mappedBy = "workspace")
