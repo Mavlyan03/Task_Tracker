@@ -50,5 +50,26 @@ VALUES (1, 1, 2, 1),
        (2, 2, 1, 2);
 
 INSERT INTO comments(id, comment, created_at, is_my_comment, card_id, user_id)
-VALUES (1, 'I will do my task', '18 May, 2023/6:30 PM', true, 1, 2),
-       (2, 'I almost done my bug', '1 June, 2023/5:20 PM', false, 2, 1);
+VALUES (1, 'I will do my task', '2023-05-05', true, 1, 2),
+       (2, 'I almost done my bug', '2023-06-01', false, 2, 1);
+
+INSERT INTO baskets(id, archived_user_id, card_id, column_id)
+VALUES (1, 1, 1, 1),
+       (2, 2, 2, 2);
+
+INSERT INTO boards_members(board_id, member_id)
+VALUES (1, 1),
+       (2, 2);
+
+INSERT INTO cards_labels(card_id, label_id)
+VALUES (1, 1),
+       (2, 2);
+
+INSERT INTO cards_members(card_id, members_id)
+VALUES (1, 2),
+       (2, 1);
+
+INSERT INTO user_workspaces(id, role, user_id, workspace_id)
+VALUES (1, 'ADMIN', 1, 1),
+       (2, 'USER', 2, 2),
+       (3, 'ADMIN', 1, 2);
